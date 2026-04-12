@@ -1,4 +1,4 @@
-from .preprocess import (
+from preprocess import (
     get_gray_scale,
     gray_otsu,
     resize_otsu,
@@ -6,7 +6,7 @@ from .preprocess import (
     resize_light_blur_adaptive,
     invert_process,
 )
-from .engine import run_tesseract_with_data
+from engine import run_tesseract_with_data
 def run_best_ocr_strategy (img):
     strategies = [
         ("gray", get_gray_scale),
@@ -34,10 +34,12 @@ def run_best_ocr_strategy (img):
         
         for config in configs:
             score, text, avg_conf = run_tesseract_with_data(processed, config)
+            """
             print(
             f"Strategy={strategy_name}, config={config}, "
             f"Score={score:.2f}, AvgConf={avg_conf:.2f}, text={repr(text)}"
             )
+            """
         
             if score > best_score:
                 best_score = score
