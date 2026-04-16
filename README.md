@@ -1,6 +1,6 @@
 # Adaptive OCR Engine
 
-A command-line OCR tool using PyTesseract library that extracts unstructured data from the provided image into structured text outputs running multiple image preprocessing strategies, returning the image text result with the highest confidence level and accuracy.
+A command-line OCR tool using PyTesseract library that extracts unstructured data from the provided image into structured text outputs running multiple image preprocessing strategies, returning image text result with the highest confidence level and accuracy.
 
 ---
 
