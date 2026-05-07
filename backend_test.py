@@ -23,7 +23,7 @@ def main():
     img = load_image(args.image)
 
     result = run_best_ocr_strategy(img)
-    print(f"\nBest OCR Result \nStrategy: {result['strategy']}\nConfig: {result['config']}\nScore: {result['score']}\nAverage Confidence: {result['avg_config']}\nText: {result['text']}")
+    print(f"\nBest OCR Result \nStrategy: {result['strategy']}\nConfig: {result['config']}\nScore: {result['score']}\nAverage Confidence: {result['avg_conf']}\nText: {result['text']}")
     """
     img = get_gray_scale(img)
     img = threshold_setup(img)

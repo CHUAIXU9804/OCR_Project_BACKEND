@@ -17,23 +17,39 @@ def run_best_ocr_strategy (img):
         ("invert_process", invert_process),
     ]
     configs = [
+        "--psm 1",
+        "--psm 3",
+        "--psm 4",
+        "--psm 5",
         "--psm 6",
         "--psm 7",
+        "--psm 8",
+        "--psm 9",
+        "--psm 10",
         "--psm 11",
+        "--psm 12",
+        "--psm 13",
     ]
     
     best_score = -1
-    best_text = -1
+    best_text = ""
     best_strategy = None
     best_config = None
     best_avg_conf = 0
-    
+    processed = None
+    score, text, avg_conf = 0, "", 0
     for strategy_name, preprocess_method in strategies:
         # print(f"strategy {strategy_name}")
-        processed = preprocess_method(img)
+        try:
+            processed = preprocess_method(img)
+        except Exception:
+            continue
         
         for config in configs:
-            score, text, avg_conf = run_tesseract_with_data(processed, config)
+            try:
+                score, text, avg_conf = run_tesseract_with_data(processed, config)
+            except Exception:
+                continue
             """
             print(
             f"Strategy={strategy_name}, config={config}, "
@@ -53,6 +69,6 @@ def run_best_ocr_strategy (img):
             "text": best_text,
             "strategy": best_strategy,
             "config": best_config,
-            "avg_config": best_avg_conf,
+            "avg_conf": best_avg_conf,
              
         }
