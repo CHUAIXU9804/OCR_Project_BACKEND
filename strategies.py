@@ -17,7 +17,6 @@ def run_best_ocr_strategy (img):
         ("invert_process", invert_process),
     ]
     configs = [
-        "--psm 1",
         "--psm 3",
         "--psm 4",
         "--psm 5",
